@@ -2,9 +2,11 @@ package com.example.recyclerandlist;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -33,6 +35,7 @@ import java.util.ArrayList;
 public class ListViewFragment extends Fragment {
 
     ListView listView_;
+    String TAG = "ListViewFragment";
     Context contextActivity;
     ListViewFragmentBinding listViewFragmentBinding;
     private static final String JSON_URL = "https://raw.githubusercontent.com/arinstotle/MyJSON/main/myjson.json";
@@ -59,6 +62,13 @@ public class ListViewFragment extends Fragment {
 
         listView_ = listViewFragmentBinding.listView;
         loadJSONFromURL(JSON_URL);
+        listView_.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.i("Position: " + position, TAG);
+                Toast.makeText(getContext(), "Position: " + position, Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void  loadJSONFromURL(String url){
