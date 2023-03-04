@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">RecyclerAndList</string>
+    <string name="choice">Choose a way to create a list:</string>
+    <string name="recyclerview">Recycler View</string>
+    <string name="listview">List View</string>
 </resources>
