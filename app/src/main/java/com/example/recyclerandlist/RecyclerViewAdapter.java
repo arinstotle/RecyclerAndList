@@ -27,7 +27,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @NonNull
     @Override
     public RecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.items, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.items_for_recycler, parent,false);
         return new RecyclerViewHolder(view);
     }
 
@@ -86,8 +86,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
             namel = itemView.findViewById(R.id.name_text_rec);
-            emaill = itemView.findViewById(R.id.email_text);
-            commentl = itemView.findViewById(R.id.message_text);
+            emaill = itemView.findViewById(R.id.email_text_rec);
+            commentl = itemView.findViewById(R.id.message_text_rec);
             avatars = itemView.findViewById(R.id.avatar_rec);
         }
     }
