@@ -75,27 +75,27 @@ public class ListViewFragment extends Fragment {
         final ProgressBar progressBar = listViewFragmentBinding.progressBar;
         progressBar.setVisibility(ListView.VISIBLE);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-        new Response.Listener< String>() {
-            @Override
-            public void onResponse(String response) {
-                progressBar.setVisibility(View.INVISIBLE);
-                try {
-                    JSONObject object = new JSONObject(EncodingToUTF8(response));
-                    JSONArray jsonArray = object.getJSONArray("users");
-                    ArrayList< JSONObject> listItems = getArrayListFromJSONArray(jsonArray);
-                    ListAdapter adapter = new ListViewAdapter(getContext(), R.layout.items, R.id.name_text, listItems);
-                    listView_.setAdapter(adapter);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        },
-        new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(),error.getMessage(),Toast.LENGTH_SHORT).show();
-            }
-        });
+                new Response.Listener< String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        progressBar.setVisibility(View.INVISIBLE);
+                        try {
+                            JSONObject object = new JSONObject(EncodingToUTF8(response));
+                            JSONArray jsonArray = object.getJSONArray("users");
+                            ArrayList< JSONObject> listItems = getArrayListFromJSONArray(jsonArray);
+                            ListAdapter adapter = new ListViewAdapter(getContext(), R.layout.items, R.id.name_text, listItems);
+                            listView_.setAdapter(adapter);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getContext(),error.getMessage(),Toast.LENGTH_SHORT).show();
+                    }
+                });
         RequestQueue requestQueue = Volley.newRequestQueue(contextActivity);
         requestQueue.add(stringRequest);
     }
