@@ -35,10 +35,10 @@ public class ListViewAdapter extends ArrayAdapter<JSONObject> {
         LayoutInflater inflater =
                 (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View listViewItem = inflater.inflate(listLayout, null, false);
-        TextView name = listViewItem.findViewById(R.id.name_text);
+        TextView name = listViewItem.findViewById(R.id.name_text_rec);
         TextView email = listViewItem.findViewById(R.id.email_text);
         TextView comment = listViewItem.findViewById(R.id.message_text);
-        ImageView avatar = listViewItem.findViewById(R.id.avatar);
+        ImageView avatar = listViewItem.findViewById(R.id.avatar_rec);
 
         try {
             name.setText(commentList.get(position).getString("name"));

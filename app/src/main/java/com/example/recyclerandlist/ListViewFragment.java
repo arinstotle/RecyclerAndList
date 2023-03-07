@@ -23,7 +23,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.recyclerandlist.databinding.ListViewFragmentBinding;
-import com.example.recyclerandlist.databinding.MainFragmentBinding;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -83,7 +82,7 @@ public class ListViewFragment extends Fragment {
                             JSONObject object = new JSONObject(EncodingToUTF8(response));
                             JSONArray jsonArray = object.getJSONArray("users");
                             ArrayList< JSONObject> listItems = getArrayListFromJSONArray(jsonArray);
-                            ListAdapter adapter = new ListViewAdapter(getContext(), R.layout.items, R.id.name_text, listItems);
+                            ListAdapter adapter = new ListViewAdapter(getContext(), R.layout.items, R.id.name_text_rec, listItems);
                             listView_.setAdapter(adapter);
                         } catch (JSONException e) {
                             e.printStackTrace();

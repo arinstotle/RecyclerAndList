@@ -85,10 +85,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         ImageView avatars;
         public RecyclerViewHolder(@NonNull View itemView) {
             super(itemView);
-            namel = itemView.findViewById(R.id.name_text);
+            namel = itemView.findViewById(R.id.name_text_rec);
             emaill = itemView.findViewById(R.id.email_text);
             commentl = itemView.findViewById(R.id.message_text);
-            avatars = itemView.findViewById(R.id.avatar);
+            avatars = itemView.findViewById(R.id.avatar_rec);
         }
     }
 }
